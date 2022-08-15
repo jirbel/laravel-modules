@@ -91,7 +91,7 @@ abstract class Module
      */
     public function getLowerName(): string
     {
-        return strtolower($this->name);
+        return Str::kebab($this->name);
     }
 
     /**
@@ -152,6 +152,11 @@ abstract class Module
     public function getRequires(): array
     {
         return $this->get('requires');
+    }
+
+    public function isPsr4(): bool
+    {
+        return $this->get('psr-4', false);
     }
 
     /**
@@ -259,6 +264,10 @@ abstract class Module
      */
     public function register(): void
     {
+        if($this->isPsr4() && file_exists($this->getPath() . '/vendor/autoload.php')) {
+            $loader = require $this->getPath() . '/vendor/autoload.php';
+            $loader->setPsr4(config('modules.namespace') . "\\{$this->getName()}\\", $this->getPath() . "/src");
+        }
         $this->registerAliases();
 
         $this->registerProviders();

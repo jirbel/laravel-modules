@@ -502,7 +502,7 @@ class ModuleGenerator extends Generator
      */
     protected function getLowerNameReplacement()
     {
-        return strtolower($this->getName());
+        return Str::kebab($this->getName());
     }
 
     /**
