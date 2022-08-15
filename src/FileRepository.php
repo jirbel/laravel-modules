@@ -338,7 +338,7 @@ abstract class FileRepository implements RepositoryInterface, Countable
     public function find(string $name)
     {
         foreach ($this->all() as $module) {
-            if ($module->getLowerName() === Str::kebab($this->name)) {
+            if ($module->getLowerName() === Str::kebab($name)) {
                 return $module;
             }
         }
