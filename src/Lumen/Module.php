@@ -18,6 +18,14 @@ class Module extends BaseModule
     /**
      * {@inheritdoc}
      */
+    public function getCachedPackagesPath(): string
+    {
+        return Str::replaceLast('packages.php', $this->getSnakeName() . '_module.php', $this->app->basePath('storage/app/') . 'packages.php');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function registerProviders(): void
     {
         foreach ($this->get('providers', []) as $provider) {

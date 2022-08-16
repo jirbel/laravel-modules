@@ -299,11 +299,18 @@ abstract class Module
     abstract public function registerProviders(): void;
 
     /**
-     * Get the path to the cached *_module.php file.
+     * Get the path to the cached *_module_services.php file.
      *
      * @return string
      */
     abstract public function getCachedServicesPath(): string;
+
+    /**
+     * Get the path to the cached *_module_packages.php file.
+     *
+     * @return string
+     */
+    abstract public function getCachedPackagesPath(): string;
 
     /**
      * Register the files from this module.
