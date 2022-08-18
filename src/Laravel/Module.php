@@ -52,8 +52,10 @@ class Module extends BaseModule
 
         $providers->splice(1, 0, [$packageManifest->providers()]);
 
+        $packageProviders = $providers->collapse()->filter(fn($value) => class_exists($value));
+
         (new ProviderRepository($this->app, new Filesystem(), $this->getCachedServicesPath()))
-            ->load($providers->collapse()->toArray());
+            ->load($packageProviders->toArray());
     }
 
     /**

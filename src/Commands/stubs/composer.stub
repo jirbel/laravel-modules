@@ -1,5 +1,6 @@
 {
     "name": "$VENDOR$/$LOWER_NAME$",
+    "type": "laravel-module",
     "description": "",
     "authors": [
         {
@@ -7,17 +8,16 @@
             "email": "$AUTHOR_EMAIL$"
         }
     ],
-    "homepage": "https://github.com/akon/$LOWER_NAME$",
+    "homepage": "https://bitbucket.org/$VENDOR$/$LOWER_NAME$",
     "license": "MIT",
-    "extra": {
-        "laravel": {
-            "providers": [
-                "$MODULE_NAMESPACE$\\$STUDLY_NAME$\\$PROVIDER_NAMESPACE$\\$STUDLY_NAME$ServiceProvider"
-            ],
-            "aliases": {
-
-            }
+    "repositories": {
+        "akoncr/starterpack": {
+            "type": "path",
+            "url": "../../"
         }
+    },
+    "provide": {
+        "akoncr/starterpack": "*"
     },
     "autoload": {
         "psr-4": {
@@ -29,6 +29,11 @@
     "autoload-dev": {
         "psr-4": {
             "$MODULE_NAMESPACE$\\$STUDLY_NAME$\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
         }
     }
 }
