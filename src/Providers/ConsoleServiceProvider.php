@@ -13,6 +13,8 @@ class ConsoleServiceProvider extends ServiceProvider
      */
     protected $commands = [
         Commands\CommandMakeCommand::class,
+        Commands\ComponentClassMakeCommand::class,
+        Commands\ComponentViewMakeCommand::class,
         Commands\ControllerMakeCommand::class,
         Commands\DisableCommand::class,
         Commands\DumpCommand::class,
@@ -49,6 +51,7 @@ class ConsoleServiceProvider extends ServiceProvider
         Commands\SeedCommand::class,
         Commands\SeedMakeCommand::class,
         Commands\SetupCommand::class,
+        Commands\SymlinkMakeCommand::class,
         Commands\UnUseCommand::class,
         Commands\UpdateCommand::class,
         Commands\UseCommand::class,

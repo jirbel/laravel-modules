@@ -180,6 +180,7 @@ return [
         Commands\SeedCommand::class,
         Commands\SeedMakeCommand::class,
         Commands\SetupCommand::class,
+        Commands\SymlinkMakeCommand::class,
         Commands\UnUseCommand::class,
         Commands\UpdateCommand::class,
         Commands\UseCommand::class,
